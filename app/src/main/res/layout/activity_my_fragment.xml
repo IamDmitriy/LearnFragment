@@ -7,6 +7,13 @@
     tools:context=".MyFragment"
     android:id="@+id/myFragment">
 
+
+    <include
+        layout="@layout/my_fragment_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/my_button"
         android:layout_width="wrap_content"

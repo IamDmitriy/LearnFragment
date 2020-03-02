@@ -18,6 +18,8 @@ public class ActionBarFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_action_bar_fragment,container,false);
 
+
+        view.setBackground(getActivity().getDrawable(R.drawable.ic_android_black_24dp));
         return view;
     }
 

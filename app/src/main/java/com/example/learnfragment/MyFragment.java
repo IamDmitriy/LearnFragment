@@ -30,10 +30,12 @@ public class MyFragment extends Fragment {
 
                 ActionBarFragment actionBarFragment = new ActionBarFragment();
 
-                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null)
+                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack("m")
                         .add(R.id.container, actionBarFragment).commit();
             }
         });
+
+
 
         return view;
     }

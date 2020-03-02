@@ -1,11 +1,11 @@
 package com.example.learnfragment;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.widget.Toolbar;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -19,15 +19,21 @@ public class MainActivity extends AppCompatActivity {
         MyFragment myFragment = new MyFragment();
 
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.container, myFragment).commit();
+                .add(R.id.container, myFragment, "m").commit();
+
+
+        //Вот так я могу заменить стандарнтый actionbar полностью кастомным
+        //Осталось только дать понять активности, что создан нужный фрагмент
+        Toolbar myFragmentToolBar = findViewById(R.id.myFragmentToolBar);
+        Toolbar myMainToolBar = findViewById(R.id.myMainToolBar);
+        myMainToolBar.setVisibility(View.GONE);
+        setSupportActionBar(myFragmentToolBar);
+
     }
 
-    public void openActionBarFragment() {
-        ActionBarFragment actionBarFragment = new ActionBarFragment();
-
-        getSupportFragmentManager().beginTransaction().addToBackStack("ActionBarFragment").add(R.id.container, actionBarFragment).commit();
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
     }
-
-
 }
