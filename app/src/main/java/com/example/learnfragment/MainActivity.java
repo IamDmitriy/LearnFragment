@@ -22,5 +22,12 @@ public class MainActivity extends AppCompatActivity {
                 .add(R.id.container, myFragment).commit();
     }
 
+    public void openActionBarFragment() {
+        ActionBarFragment actionBarFragment = new ActionBarFragment();
+
+        getSupportFragmentManager().beginTransaction().addToBackStack("ActionBarFragment").add(R.id.container, actionBarFragment).commit();
+
+    }
+
 
 }

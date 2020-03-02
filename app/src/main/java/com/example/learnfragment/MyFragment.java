@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +25,13 @@ public class MyFragment extends Fragment {
         myButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast();
+                //Такой вариант не работает
+                //Intent intent = new Intent(this, ActionBarFragment.class);
+
+                ActionBarFragment actionBarFragment = new ActionBarFragment();
+
+                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null)
+                        .add(R.id.container, actionBarFragment).commit();
             }
         });
 
